@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <title>Ryan Romadhon</title>
 </head>
+  
 
 <body>
   <!-- Header -->
@@ -26,7 +27,7 @@
             <li><a href="#hero" data-after="Home">Home</a></li>
             <li><a href="#about" data-after="About">About</a></li>
             <li><a href="#projects" data-after="Projects">Projects</a></li>
-            <li><a href="#contact" data-after="Contact">Contact</a></li>
+            <li><a href="#info" data-after="Contact">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -176,7 +177,7 @@
     <!-- End Service Section -->
 
   <!-- Contact Section -->
-  <section id="contact">
+  <!-- <section id="contact">
     <div class="contact container">
       <div>
         <h1 class="section-title">Contact <span>info</span></h1>
@@ -205,7 +206,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- End Contact Section -->
 
   <section class="info" id="info">
@@ -214,35 +215,59 @@
       </div>
 
       <div class="info-form">
-        <form action="">
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Email Address.." required>
-          <textarea name="" id="" cols="30" row="10" placeholder="Write Message Here..." required></textarea>
-          <input type="submit" name="" value="Send Massage" class="send-btn">
+        <form name="submit-to-google-sheet">
+          <input type="text" name="Name" placeholder="Your Name" required>
+          <input type="email" name="Email" placeholder="Email Address.." required>
+          <textarea name="Message" rows="10" placeholder="Write Message Here..."></textarea>
+          <input type="submit" name="" value="Send Message" class="send-btn">
         </form>
       </div>
+      <span id="msg"></span>
   </section>
 
   <!-- Footer -->
-  <section id="footer">
-    <div class="footer container">
-      <div class="brand">
-        <h1><span>R</span>Y <span>A</span>N</h1>
-      </div>
-      <h2>Your Complete Web Solution</h2>
-      <div class="social-icon">
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
-        </div>
-        <div class="social-item">
-          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png" /></a>
-        </div>
-      </div>
-      <p>Copyright © 2023 Ryan Romadhon. All rights reserved</p>
+<section id="footer">
+  <div class="footer container">
+    <div class="brand">
+      <h1><span>R</span>Y <span>A</span>N</h1>
     </div>
-  </section>
-  <!-- End Footer -->
-  <script src="./app.js"></script>
+    <div class="contact-info">
+      <div class="contact-item">
+        <h1>Phone : </h1>
+        <h2>+62 823 2965 6281</h2>
+      </div>
+      <div class="contact-item">
+        <h1>Email : </h1>
+        <h2>ryanromadhon59@gmail.com</h2>
+      </div>
+      <div class="contact-item">
+        <h1>Address :</h1>
+        <h2>Palmerah, Jakarta Barat, Jakarta</h2>
+      </div>
+    </div>
+    <p>Copyright © 2023 Ryan Romadhon. All rights reserved</p>
+  </div>
+</section>
+<!-- End Footer -->
+<script src="./app.js"></script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxU_PQ-el86JyO1G-MXmQJEYXZLUexGeJlKvmKSRYQlG1teF6_yjlhL0OXhIowi5FCm1g/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message sent successfully"
+        setTimeout(function(){
+          msg.innerHTML = ""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
 </body>
 
 </html>

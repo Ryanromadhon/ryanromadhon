@@ -76,6 +76,7 @@ p {
 	color: yellow;
 }
 
+
 /* Header section */
 #header {
 	position: fixed;
@@ -87,7 +88,7 @@ p {
 }
 #header .header {
 	min-height: 8vh;
-	background-color: #0d1433;
+	background-color: transparent;
 	transition: 0.3s ease background-color;
 }
 #header .nav-bar {
@@ -213,14 +214,14 @@ p {
 } */
 #hero::after {
 	content: '';
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background-color: #0d1433;
-	opacity: 1;
-	z-index: -1;
+    position: absolute;
+    background: linear-gradient(180deg, #1a1e26 50%, #2a2f3e);
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    z-index: -1;
 }
 #hero .hero {
 	max-width: 1200px;
@@ -349,6 +350,7 @@ p {
 /* End Services Section */
 
 /* Projects section */
+
 #projects .projects {
 	flex-direction: column;
 	max-width: 1200px;
@@ -487,6 +489,7 @@ p {
 	border: 7px solid #75b2c5;
 	z-index: -1;
 }
+
 /* End About Section */
 
 /* contact Section */
@@ -544,15 +547,25 @@ p {
 	position: relative;
 	width: 600px;
 }
+.msg-container {
+	text-align: center; /* Pusatkan teks pesan */
+  }
+  
+  #msg {
+	color: red;
+    display: block;
+    margin-left: 530px;
+    margin-bottom: 20px;
+  }
 form input,
 form textarea{
-    width: 100%;
+	width: 100%;
     padding: 20px;
     border: none;
     outline: none;
     box-shadow: 0 0 5px;
-    background: white;
-    color: #75b2c5;
+    background: #f0eeef;
+    color: #000000;
     margin-bottom: 20px;
     border-radius: 8px;
 }
@@ -577,9 +590,10 @@ form .send-btn{
 	width: 40%;
 }
 form .send-btn:hover{
-	background: red;
+	background: #df6c6cf5;
 	cursor: pointer;
 }
+
 
 /* Footer */
 #footer {
@@ -592,33 +606,37 @@ form .send-btn:hover{
 	padding-bottom: 10px;
 }
 #footer h2 {
-	color: white;
 	font-weight: 500;
 	font-size: 1.8rem;
 	letter-spacing: 0.1rem;
 	margin-top: 10px;
 	margin-bottom: 10px;
-}
-#footer .social-icon {
+  }
+  
+  #footer .contact-info {
 	display: flex;
-	margin-bottom: 30px;
-}
-#footer .social-item {
-	height: 50px;
-	width: 50px;
-	margin: 0 5px;
-}
-#footer .social-item img {
-	filter: grayscale(1);
-	transition: 0.3s ease filter;
-}
-#footer .social-item:hover img {
-	filter: grayscale(0);
-}
-#footer p {
-	color: white;
-	font-size: 1.3rem;
-}
+	flex-direction: column;
+	margin-top: 20px;
+  }
+  
+  #footer .contact-item {
+	text-align: left;
+	display: flex;
+	align-items: center; /* Memusatkan vertikal */
+	margin-bottom: 15px; /* Menambahkan jarak antar item */
+  }
+  
+  #footer .contact-item h1 {
+	margin: 0; /* Menghilangkan margin bawaan browser */
+	margin-right: 10px;
+  }
+  
+  #footer .contact-item h2 {
+	margin: 0; /* Menghilangkan margin bawaan browser */
+  }
+
+
+  
 /* End Footer */
 
 /* Keyframes */
